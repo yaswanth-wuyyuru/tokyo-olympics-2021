@@ -120,6 +120,6 @@ Future Enhancements
 
 
 Author
-Yaswanth Sai Surya Teja Wuyyuru
-AI Data Engineer | Cloud & Analytics Enthusiast
+- Yaswanth Sai Surya Teja Wuyyuru
+- AI Data Engineer | Cloud & Analytics Enthusiast
 
