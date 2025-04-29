@@ -99,24 +99,24 @@ dbutils.fs.mount(
 
 ```
 How to Run This Project
---Clone this Repository (contains PySpark notebooks and configs)
+- Clone this Repository (contains PySpark notebooks and configs)
 
--- Mount your Azure Data Lake using Databricks and OAuth configs
+- Mount your Azure Data Lake using Databricks and OAuth configs
 
--- Run Transformation Notebooks to clean and analyze CSV data
+- Run Transformation Notebooks to clean and analyze CSV data
 
--- Create Synapse Views from transformed data
+- Create Synapse Views from transformed data
 
--- Connect Power BI to visualize trends and derive insights
+- Connect Power BI to visualize trends and derive insights
 
--- Secure with Key Vault + RBAC for enterprise-ready deployment
+- Secure with Key Vault + RBAC for enterprise-ready deployment
 
 Future Enhancements
--- Integrate historical Olympics data for time-series trend analysis
+- Integrate historical Olympics data for time-series trend analysis
 
--- Use Azure ML or Databricks MLlib to predict medal trends based on athlete demographics
+- Use Azure ML or Databricks MLlib to predict medal trends based on athlete demographics
 
--- Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
+- Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
 
 
 Author
