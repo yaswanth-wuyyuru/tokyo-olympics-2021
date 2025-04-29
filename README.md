@@ -121,6 +121,8 @@ Use Azure ML or Databricks MLlib to predict medal trends based on athlete demogr
 
 Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
 
+```
+
 Author
 Yaswanth Sai Surya Teja Wuyyuru
 AI Data Engineer | Cloud & Analytics Enthusiast
