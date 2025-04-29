@@ -1,94 +1,127 @@
-# 📊 GitHub Activity Analytics on Azure — End-to-End Data Integration & Insights Pipeline
+# 🏅 Tokyo Olympics 2021 Analytics Pipeline on Azure
+
+An end-to-end data engineering and analytics project built to analyze athlete performance, medal distribution, and sport-wise trends from the Tokyo Olympics 2021 dataset. This solution utilizes Microsoft Azure's modern data stack to ingest, transform, and visualize Olympic data, enabling insightful decision-making for sports federations, coaching teams, and performance analysts.
+
+---
 
 ## 📈 Business Objective
 
-This project was developed to help **engineering managers and DevOps teams** gain actionable insights into team productivity, code review cycles, and repository health by analyzing GitHub activity data. Using Azure’s modern data stack, the pipeline integrates GitHub data, transforms it, and delivers **interactive analytics dashboards** that inform strategic decisions about developer performance, sprint planning, and resource allocation.
+The Tokyo Olympics host over 11,000 athletes across 33 sports and 339 events. This project aims to extract meaningful insights from Olympic data, helping stakeholders:
+
+- Track medal distribution by country, gender, and sport
+- Analyze athlete demographics and participation trends
+- Identify sports and countries with high medal efficiency
+- Discover patterns in performance across age groups, events, and countries
+
+---
 
 ## 📊 Metrics & Dimensions
 
-This pipeline enables comprehensive analytics through the following **business-relevant metrics** and **dimensions**:
-
 ### 🔢 Key Metrics
-- Total commits per developer
-- Average pull request (PR) review time
-- Pull requests opened vs. closed (per week/month)
-- Time to merge PRs
-- Issue resolution rate (closed vs. opened)
-- Active/inactive repos by commit frequency
+- Total medals (Gold, Silver, Bronze)
+- Medal count per country and sport
+- Athlete participation volume per event
+- Gender-wise medal share
+- Average age of medalists
+- Medal efficiency (Medals per athlete per country)
 
 ### 🔠 Dimensions
-- Repository
-- Developer
-- Date (Day/Week/Month)
-- Team/Organization unit
-- PR label/type
+- Country (NOC)
+- Sport / Event
+- Athlete
+- Gender
+- Age Group
+- Medal Type
+- Date of Event
 
-> ✅ *"This pipeline supports reporting on metrics like time-to-merge, PR volume, and issue resolution, segmented by team, developer, and repository to guide engineering operations."*
+> *Supports slicing and dicing Olympic performance across key dimensions like gender, country, and sport to derive targeted performance insights.*
+
+---
 
 ## 🔍 Key Insights
 
-Data exploration and analysis via Azure Synapse and Power BI led to the following key insights:
+After performing transformation and analysis using PySpark in Azure Databricks, these were some notable insights:
 
-- 📉 **PRs without assigned reviewers stayed open 2x longer** than those with assignments.
-- 📈 **Developer A consistently merged 25% more PRs** than the team average, indicating a high-performing contributor.
-- ⚠️ Certain repositories showed <1 commit/week activity, signaling potential neglect or deprecated usage.
-- 🔁 Repos with regular bi-weekly commit patterns had 30% higher issue resolution rates and fewer rollbacks.
+- 🥇 **USA, China, and Japan** dominated the medal tally, but **Japan showed highest medal efficiency** in Judo and Skateboarding.
+- 👧 **Athletes below 20 years old won over 10% of total medals**, especially in new-age sports like Skateboarding and Gymnastics.
+- 🏃‍♀️ **Female athletes contributed significantly** in Swimming, Athletics, and Weightlifting with near-equal medal distribution in multiple countries.
+- 🥉 **Countries with fewer athletes** (e.g., Bermuda, San Marino) showed high medal-per-athlete ratios, indicating strategic success.
+
+---
 
 ## 💡 Recommendations
 
-Based on analysis outcomes, the following actions are recommended for **engineering leadership and project managers**:
+Based on the analytical findings:
 
-- 🛠️ Implement **automated reviewer assignment** policies for all PRs to reduce bottlenecks in review cycles.
-- 📅 Set **minimum activity thresholds** (e.g., commits per month) to detect and deprecate stale repositories.
-- 🎯 Use **developer-level insights** to identify high/low performers and plan mentorship or role allocation accordingly.
-- 📊 Track issue resolution KPIs to improve sprint planning and feature delivery velocity.
+- 🇯🇵 Invest further in high-efficiency sports (e.g., Judo for Japan, Wrestling for Russia).
+- 🚺 Boost female participation in countries with gender gaps to improve medal counts.
+- 🧒 Develop youth training programs in emerging sports like Skateboarding, Surfing, and Climbing.
+- 📊 Use country-level medal efficiency KPIs to guide selection and delegation strategy in future Olympics.
+
+---
 
 ## 🧠 Tools & Data Ecosystem
 
-This solution forms a **secure, scalable, and modular data ecosystem** using the following Azure and open-source tools:
+| Layer                     | Technology                  | Description                                                               |
+|--------------------------|-----------------------------|---------------------------------------------------------------------------|
+| **Data Ingestion**       | Azure Data Factory (or Mount via PySpark) | Accessed CSV files from Azure Data Lake Gen2 using OAuth authentication |
+| **Data Storage**         | Azure Data Lake Storage Gen2 | Secure, scalable raw data storage (mounted to Databricks)                |
+| **Data Processing**      | Azure Databricks + PySpark   | Cleaned and transformed Olympic data using PySpark DataFrames            |
+| **Secrets Management**   | Azure Key Vault              | Secured OAuth credentials and secret keys                                |
+| **Data Modeling**        | Azure Synapse Analytics      | Created analytical views for medal metrics and sport-wise aggregations   |
+| **Visualization**        | Power BI                     | Built interactive dashboards for country-wise, gender-wise, and sport-wise performance |
+| **Security**             | Azure RBAC                   | Applied role-based access control to all Azure services                  |
 
-| Layer | Technology | Description |
-|-------|------------|-------------|
-| **Data Ingestion** | Azure Data Factory | Ingest GitHub repo data via REST APIs into Azure Data Lake |
-| **Data Storage** | Azure Data Lake Storage Gen2 | Store both raw and transformed data with directory hierarchy |
-| **Data Transformation** | Azure Databricks (PySpark) | Clean, normalize, and enrich GitHub metadata at scale |
-| **Secrets Management** | Azure Key Vault | Manage and securely store client secrets and API keys |
-| **Data Modeling & Querying** | Azure Synapse Analytics | Create views and run analytical queries for insight extraction |
-| **Visualization** | Power BI | Build dashboards (stacked columns, heatmaps) for actionable insights |
-| **Security** | Azure RBAC | Apply role-based access to data layers and services |
-
-> 🔐 *RBAC policies ensure secure, governed access to all data and compute layers across the ecosystem.*
-
-## 📊 Dashboard Preview (Power BI)
-
-![Dashboard Screenshot Placeholder](https://via.placeholder.com/800x400.png?text=Power+BI+Dashboard+Preview)
-
-> *Power BI dashboard showcasing commit frequency, PR cycle time, and repository activity trends.*
-
-## 🚀 How to Run This Project
-
-1. **Clone the GitHub Repo**: Contains sample data & pipeline code
-2. **Configure Azure Data Factory**: To fetch GitHub metadata into Azure Data Lake Gen2
-3. **Launch Azure Databricks Cluster**: Run PySpark notebooks for transformation
-4. **Connect Synapse Analytics**: For querying and modeling the transformed data
-5. **Visualize with Power BI**: Build dashboards from Synapse datasets
-6. **Set Up Azure Key Vault**: Store and fetch secrets securely
-7. **Apply RBAC**: Configure access controls for team members
-
-## 📌 Future Enhancements
-
-- ✅ Implement real-time streaming of GitHub events via Azure Event Hub  
-- ✅ Add anomaly detection using Azure ML or Databricks MLlib  
-- ✅ Integrate JIRA/Slack APIs for richer DevOps insights  
-- ✅ Automate alerting with Logic Apps for unreviewed PRs or inactive repos  
+> 🔐 Secrets were managed via **Azure Key Vault**, and data access was securely controlled with **RBAC**.
 
 ---
 
-## 👨‍💻 Author
+## 🧪 Sample Analysis Code (PySpark in Azure Databricks)
 
-**Yaswanth Sai Surya Teja Wuyyuru**  
-Data Engineer | Cloud & Analytics Enthusiast  
-[LinkedIn](https://www.linkedin.com/in/yaswanthwuyyuru/) • [Medium Blog](https://medium.com/@ywuyyuru7)
+```python
+from pyspark.sql.types import *
+from pyspark.sql.functions import col
 
----
+# Mount Azure Data Lake Gen2
+configs = {
+  "fs.azure.account.auth.type": "OAuth",
+  "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+  "fs.azure.account.oauth2.client.id": "<Client_ID>",
+  "fs.azure.account.oauth2.client.secret": "<Secret_Key>",
+  "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<Tenant_ID>/oauth2/token"
+}
 
+dbutils.fs.mount(
+  source = "abfss://<container>@<storage_account>.dfs.core.windows.net",
+  mount_point = "/mnt/tokyoolympics2021",
+  extra_configs = configs
+)
+📊 Dashboard Preview (Power BI)
+Power BI dashboards showcase athlete participation trends, medal distributions, and high-performing nations across various Olympic sports.
+
+🖼️ (Insert screenshot or link to dashboard demo if available)
+
+🚀 How to Run This Project
+Clone this Repository (contains PySpark notebooks and configs)
+
+Mount your Azure Data Lake using Databricks and OAuth configs
+
+Run Transformation Notebooks to clean and analyze CSV data
+
+Create Synapse Views from transformed data
+
+Connect Power BI to visualize trends and derive insights
+
+Secure with Key Vault + RBAC for enterprise-ready deployment
+
+📌 Future Enhancements
+✅ Integrate historical Olympics data for time-series trend analysis
+
+✅ Use Azure ML or Databricks MLlib to predict medal trends based on athlete demographics
+
+✅ Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
+
+👨‍💻 Author
+Yaswanth Sai Surya Teja Wuyyuru
+AI Data Engineer | Cloud & Analytics Enthusiast
+🔗 LinkedIn • 📘 Medium Blog
