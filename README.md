@@ -96,11 +96,8 @@ dbutils.fs.mount(
   mount_point = "/mnt/tokyoolympics2021",
   extra_configs = configs
 )
-Dashboard Preview (Power BI)
-Power BI dashboards showcase athlete participation trends, medal distributions, and high-performing nations across various Olympic sports.
 
-(Insert screenshot or link to dashboard demo if available)
-
+```
 How to Run This Project
 Clone this Repository (contains PySpark notebooks and configs)
 
@@ -121,7 +118,6 @@ Use Azure ML or Databricks MLlib to predict medal trends based on athlete demogr
 
 Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
 
-```
 
 Author
 Yaswanth Sai Surya Teja Wuyyuru
