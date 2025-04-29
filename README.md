@@ -4,7 +4,7 @@ An end-to-end data engineering and analytics project built to analyze athlete pe
 
 ---
 
-## 📈 Business Objective
+##Business Objective
 
 The Tokyo Olympics host over 11,000 athletes across 33 sports and 339 events. This project aims to extract meaningful insights from Olympic data, helping stakeholders:
 
@@ -15,9 +15,9 @@ The Tokyo Olympics host over 11,000 athletes across 33 sports and 339 events. Th
 
 ---
 
-## 📊 Metrics & Dimensions
+##Metrics & Dimensions
 
-### 🔢 Key Metrics
+###Key Metrics
 - Total medals (Gold, Silver, Bronze)
 - Medal count per country and sport
 - Athlete participation volume per event
@@ -25,7 +25,7 @@ The Tokyo Olympics host over 11,000 athletes across 33 sports and 339 events. Th
 - Average age of medalists
 - Medal efficiency (Medals per athlete per country)
 
-### 🔠 Dimensions
+###Dimensions
 - Country (NOC)
 - Sport / Event
 - Athlete
@@ -38,29 +38,29 @@ The Tokyo Olympics host over 11,000 athletes across 33 sports and 339 events. Th
 
 ---
 
-## 🔍 Key Insights
+##Key Insights
 
 After performing transformation and analysis using PySpark in Azure Databricks, these were some notable insights:
 
-- 🥇 **USA, China, and Japan** dominated the medal tally, but **Japan showed highest medal efficiency** in Judo and Skateboarding.
-- 👧 **Athletes below 20 years old won over 10% of total medals**, especially in new-age sports like Skateboarding and Gymnastics.
-- 🏃‍♀️ **Female athletes contributed significantly** in Swimming, Athletics, and Weightlifting with near-equal medal distribution in multiple countries.
-- 🥉 **Countries with fewer athletes** (e.g., Bermuda, San Marino) showed high medal-per-athlete ratios, indicating strategic success.
+- **USA, China, and Japan** dominated the medal tally, but **Japan showed highest medal efficiency** in Judo and Skateboarding.
+- **Athletes below 20 years old won over 10% of total medals**, especially in new-age sports like Skateboarding and Gymnastics.
+- **Female athletes contributed significantly** in Swimming, Athletics, and Weightlifting with near-equal medal distribution in multiple countries.
+- **Countries with fewer athletes** (e.g., Bermuda, San Marino) showed high medal-per-athlete ratios, indicating strategic success.
 
 ---
 
-## 💡 Recommendations
+##Recommendations
 
 Based on the analytical findings:
 
-- 🇯🇵 Invest further in high-efficiency sports (e.g., Judo for Japan, Wrestling for Russia).
-- 🚺 Boost female participation in countries with gender gaps to improve medal counts.
-- 🧒 Develop youth training programs in emerging sports like Skateboarding, Surfing, and Climbing.
-- 📊 Use country-level medal efficiency KPIs to guide selection and delegation strategy in future Olympics.
+- Invest further in high-efficiency sports (e.g., Judo for Japan, Wrestling for Russia).
+- Boost female participation in countries with gender gaps to improve medal counts.
+- Develop youth training programs in emerging sports like Skateboarding, Surfing, and Climbing.
+- Use country-level medal efficiency KPIs to guide selection and delegation strategy in future Olympics.
 
 ---
 
-## 🧠 Tools & Data Ecosystem
+##Tools & Data Ecosystem
 
 | Layer                     | Technology                  | Description                                                               |
 |--------------------------|-----------------------------|---------------------------------------------------------------------------|
@@ -72,13 +72,13 @@ Based on the analytical findings:
 | **Visualization**        | Power BI                     | Built interactive dashboards for country-wise, gender-wise, and sport-wise performance |
 | **Security**             | Azure RBAC                   | Applied role-based access control to all Azure services                  |
 
-> 🔐 Secrets were managed via **Azure Key Vault**, and data access was securely controlled with **RBAC**.
+> Secrets were managed via **Azure Key Vault**, and data access was securely controlled with **RBAC**.
 
 ---
 
-## 🧪 Sample Analysis Code (PySpark in Azure Databricks)
+##Sample Analysis Code (PySpark in Azure Databricks)
 
-python
+```python
 from pyspark.sql.types import *
 from pyspark.sql.functions import col
 
@@ -96,12 +96,12 @@ dbutils.fs.mount(
   mount_point = "/mnt/tokyoolympics2021",
   extra_configs = configs
 )
-📊 Dashboard Preview (Power BI)
+Dashboard Preview (Power BI)
 Power BI dashboards showcase athlete participation trends, medal distributions, and high-performing nations across various Olympic sports.
 
-🖼️ (Insert screenshot or link to dashboard demo if available)
+(Insert screenshot or link to dashboard demo if available)
 
-🚀 How to Run This Project
+How to Run This Project
 Clone this Repository (contains PySpark notebooks and configs)
 
 Mount your Azure Data Lake using Databricks and OAuth configs
@@ -114,14 +114,14 @@ Connect Power BI to visualize trends and derive insights
 
 Secure with Key Vault + RBAC for enterprise-ready deployment
 
-📌 Future Enhancements
-✅ Integrate historical Olympics data for time-series trend analysis
+Future Enhancements
+Integrate historical Olympics data for time-series trend analysis
 
-✅ Use Azure ML or Databricks MLlib to predict medal trends based on athlete demographics
+Use Azure ML or Databricks MLlib to predict medal trends based on athlete demographics
 
-✅ Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
+Build live dashboards using Azure Event Hub and Stream Analytics for real-time Olympic coverage
 
-👨‍💻 Author
+Author
 Yaswanth Sai Surya Teja Wuyyuru
 AI Data Engineer | Cloud & Analytics Enthusiast
 
